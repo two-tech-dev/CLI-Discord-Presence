@@ -1,0 +1,37 @@
+{
+  "name": "cli-discord-presence",
+  "version": "0.1.0",
+  "description": "Run CLI tools with Discord Rich Presence.",
+  "type": "module",
+  "bin": {
+    "cli-presence": "./src/cli.js"
+  },
+  "scripts": {
+    "start": "node ./src/cli.js",
+    "bundle": "esbuild src/cli.js --bundle --platform=node --format=cjs --outfile=build/cli.cjs",
+    "build": "npm run bundle && pkg build/cli.cjs --targets node18-linux-x64,node18-linux-arm64,node18-macos-x64,node18-macos-arm64,node18-win-x64 --out-path dist",
+    "build:linux": "npm run bundle && pkg build/cli.cjs --targets node18-linux-x64,node18-linux-arm64 --out-path dist",
+    "build:macos": "npm run bundle && pkg build/cli.cjs --targets node18-macos-x64,node18-macos-arm64 --out-path dist",
+    "build:windows": "npm run bundle && pkg build/cli.cjs --targets node18-win-x64 --out-path dist"
+  },
+  "dependencies": {
+    "discord-rpc": "^4.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0",
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "targets": [
+      "node18-linux-x64",
+      "node18-linux-arm64",
+      "node18-macos-x64",
+      "node18-macos-arm64",
+      "node18-win-x64"
+    ],
+    "outputPath": "dist"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
