@@ -53,7 +53,7 @@ detect_profile() {
 ask() {
   prompt="$1"
   default="$2"
-  printf '%s [%s]: ' "$prompt" "$default"
+  printf '%s [%s]: ' "$prompt" "$default" >&2
   read -r answer || answer=""
   if [ -z "$answer" ]; then printf '%s' "$default"; else printf '%s' "$answer"; fi
 }
@@ -63,7 +63,7 @@ ask_yes() {
   default="$2"
   suffix="y/N"
   [ "$default" = "y" ] && suffix="Y/n"
-  printf '%s [%s]: ' "$prompt" "$suffix"
+  printf '%s [%s]: ' "$prompt" "$suffix" >&2
   read -r answer || answer=""
   answer="$(printf '%s' "$answer" | tr '[:upper:]' '[:lower:]')"
   [ -z "$answer" ] && answer="$default"
