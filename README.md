@@ -19,7 +19,7 @@ No Node.js, npm, or repo clone is required.
 Linux/macOS:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/two-tech-dev/CLI-Discord-Presence/main/scripts/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/two-tech-dev/CLI-Discord-Presence/main/scripts/install.sh | bash
 ```
 
 Windows PowerShell:
